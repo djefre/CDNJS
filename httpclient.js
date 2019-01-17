@@ -1,7 +1,7 @@
 // Promise based httpClient
-var httpClient = function (method, url) {
+function httpClient (method, url) {
 	return new Promise(function (resolve, reject) {
-		var xhr = new XMLHttpRequest();
+		let xhr = new XMLHttpRequest();
     	xhr.open(method, url);
     	xhr.onload = function () {
 	      	if (this.status >= 200 && this.status < 300) {
@@ -30,3 +30,5 @@ var httpClient = function (method, url) {
 // 	.catch(function (err) {
 // 	  console.error("I've encountered an error ): ", err.statusText);
 // 	});
+
+// ==================================================================
