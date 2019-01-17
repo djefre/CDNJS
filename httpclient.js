@@ -1,9 +1,9 @@
 // Promise based httpClient
 function httpClient (method, url) {
 	return new Promise(function (resolve, reject) {
-		  let xhr = new XMLHttpRequest();
+	  	let xhr = new XMLHttpRequest();
     	xhr.open(method, url);
-    	xhr.onload = function () {
+    	xhr.onload = () => {
 	      	if (this.status >= 200 && this.status < 300) {
 				    resolve(xhr.response);
 	      	} 
@@ -12,9 +12,9 @@ function httpClient (method, url) {
           			status: this.status,
           			statusText: xhr.statusText
         		});
- 			    }
+		    }
     	};
-    	xhr.onerror = function () {
+    	xhr.onerror = () => {
       		reject({
         		status: this.status,
         		statusText: xhr.statusText
