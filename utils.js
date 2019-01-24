@@ -34,58 +34,22 @@ function fireFunctionWhenUserStopsTyping(elementSelector, interval, functionToEx
 
 /* ================================================================== */
 
-function showScrollTopButton(){
-	var declarations = document.createTextNode('.2topButton{background:#ffffff;background-image:-webkit-linear-gradient(top, #ffffff, #ffffff);background-image:-moz-linear-gradient(top, #ffffff, #ffffff);background-image:-ms-linear-gradient(top, #ffffff, #ffffff);background-image:-o-linear-gradient(top, #ffffff, #ffffff);background-image:linear-gradient(to bottom, #ffffff, #ffffff);-webkit-border-radius:5;-moz-border-radius:5;border-radius:5px;font-family:Arial;color:#c20000;font-size:24px;padding:10px 20px;border:solid #c96666 2px;text-decoration:none}.2topButton:hover{background:#c96666;background-image:-webkit-linear-gradient(top, #c96666, #c96666);background-image:-moz-linear-gradient(top, #c96666, #c96666);background-image:-ms-linear-gradient(top, #c96666, #c96666);background-image:-o-linear-gradient(top, #c96666, #c96666);background-image:linear-gradient(to bottom, #c96666, #c96666);text-decoration:none;color:#fff}');
-	// .2topButton {
-	//   background: #ffffff;
-	//   background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
-	//   background-image: -moz-linear-gradient(top, #ffffff, #ffffff);
-	//   background-image: -ms-linear-gradient(top, #ffffff, #ffffff);
-	//   background-image: -o-linear-gradient(top, #ffffff, #ffffff);
-	//   background-image: linear-gradient(to bottom, #ffffff, #ffffff);
-	//   -webkit-border-radius: 5;
-	//   -moz-border-radius: 5;
-	//   border-radius: 5px;
-	//   font-family: Arial;
-	//   color: #c20000;
-	//   font-size: 24px;
-	//   padding: 10px 20px 10px 20px;
-	//   border: solid #c96666 2px;
-	//   text-decoration: none;
-	// }
-
-	// .2topButton:hover {
-	//   background: #c96666;
-	//   background-image: -webkit-linear-gradient(top, #c96666, #c96666);
-	//   background-image: -moz-linear-gradient(top, #c96666, #c96666);
-	//   background-image: -ms-linear-gradient(top, #c96666, #c96666);
-	//   background-image: -o-linear-gradient(top, #c96666, #c96666);
-	//   background-image: linear-gradient(to bottom, #c96666, #c96666);
-	//   text-decoration: none;
-	//   color: #fff;
-	// }
-
-	// Prep and append styles to HEAD
-	var head = document.getElementsByTagName('head')[0];
-	var style = document.createElement('style');
-	style.type = 'text/css';
-	if (style.styleSheet) {
-	  style.styleSheet.cssText = declarations.nodeValue;
-	} else {
-	  style.appendChild(declarations);
-	}
-	head.appendChild(style);
-	
-	var btn = document.createElement("button");
-  	btn.innerText = "TOP";
-  	btn.classList.add('2topButton');
-  	btn.style.color = "red";
-  	btn.addEventListener('click', ()=>{
-  		document.documentElement.scrollTop = 0;
+// Still needs some styling
+function showScrollTopButton(marginTopScroll){
+	var mts = marginTopScroll ? +marginTopScroll : 0;
+	var divBtn = document.createElement("div");
+  	divBtn.innerHTML = "TOP";
+  	divBtn.style.position = 'fixed';
+  	divBtn.style.bottom = '10px';
+	divBtn.style.right = '10px';
+  	divBtn.style.color = 'darkred';
+  	divBtn.style.cursor = 'pointer';
+  	divBtn.addEventListener('click', ()=>{
+  		document.documentElement.scrollTop = 0 + mts;
   	});
 	
   	// Append button to DOM
-  	document.body.appendChild(btn);
+  	document.body.appendChild(divBtn);
 }
 
 /* ================================================================== */
