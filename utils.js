@@ -42,12 +42,20 @@ function showScrollTopButton(marginTopScroll){
   	divBtn.style.position = 'fixed';
   	divBtn.style.bottom = '10px';
 	divBtn.style.right = '10px';
+	divBtn.style.borderColor = 'darkred';
+	divBtn.style.borderStyle = 'solid';
+	divBtn.style.padding = '5px 10px 5px 10px';
+	divBtn.style.borderWidth = '2px';
   	divBtn.style.color = 'darkred';
   	divBtn.style.cursor = 'pointer';
+  	divBtn.onmouseover = function(){
+  		console.log('mouse over to top button');
+  	}
+
   	divBtn.addEventListener('click', ()=>{
   		document.documentElement.scrollTop = 0 + mts;
   	});
-	
+
   	// Append button to DOM
   	document.body.appendChild(divBtn);
 }
