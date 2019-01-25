@@ -40,7 +40,7 @@ function showScrollTopButton(marginTopScroll){
 	var divBtn = document.createElement("div");
   	divBtn.innerHTML = "TOP";
   	divBtn.style.position = 'fixed';
-  	divBtn.style.bottom = '10px';
+  	divBtn.style.bottom = '25px';
 	divBtn.style.right = '10px';
 	divBtn.style.borderColor = 'darkred';
 	divBtn.style.borderStyle = 'solid';
