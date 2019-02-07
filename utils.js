@@ -2,6 +2,7 @@
 function loadExternalJsFileByUrl(url){
 	let scriptElement = document.createElement('script');
 	scriptElement.src = url;
+	scriptElement.type = 'application/javascript';
 	document.head.appendChild(scriptElement);
 }
 
@@ -58,6 +59,30 @@ function showScrollTopButton(marginTopScroll){
 
   	// Append button to DOM
   	document.body.appendChild(divBtn);
+}
+
+/* ================================================================== */
+
+function styledConsoleMessageExample(){
+	let font="font-family: roboto;";
+	let italic="font-style: italic;";
+	let blue="color: #005FAB;";
+	let red="color: #CE0538;";
+	let black = "color: black;";
+	let large="font-size: 40px;";
+	let normal="font-size: 30px;margin-top:10px;";
+	let small="font-size: 18px;";
+	let blueLarge=font+blue+large+italic;
+	let redLarge=font+red+large+italic;
+	let redNormal=font+red+normal+italic;
+	let redSmall=font+red+small;
+	let blueNormal=font+blue+normal+italic;
+	let blueSmall=font+blue+small;
+	let blackLarge=font+black+large;
+	let blackNormal=font+black+normal;
+	let inspireText="%cnog meer text hierzo";
+	console.log("%cJ%cE%cFF%c software",redLarge,redLarge,blackLarge,redNormal);
+	console.log(inspireText, redSmall);
 }
 
 /* ================================================================== */
