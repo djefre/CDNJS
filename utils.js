@@ -85,6 +85,11 @@ function styledConsoleMessageExample(){
 	console.log(inspireText, redSmall);
 }
 
+function getUrlParameterValueByName(parameterName, url){
+	url = !url ? window.location.search : url; // Default to window.location.search if no url is supplied
+	return (new URLSearchParams(url).get(parameterName));
+}
+
 /* ================================================================== */
 
 /*function downloadFileByUrl(url, fileName){
