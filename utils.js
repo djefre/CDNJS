@@ -85,11 +85,26 @@ function styledConsoleMessageExample(){
 	console.log(inspireText, redSmall);
 }
 
+/* ================================================================== */
+
 function getUrlParameterValueByName(parameterName, url){
 	url = !url ? window.location.search : url; // Default to window.location.search if no url is supplied
 	return (new URLSearchParams(url).get(parameterName));
 }
 
+/* ================================================================== */
+
+function getDaysMinutesHoursSecondsFromMiliseconds(ms, separator){
+	separator = !separator ? ":" : separator; // Default separator to ':'
+    let days = Math.floor(ms / (24*60*60*1000));
+    let daysms=ms % (24*60*60*1000);
+    let hours = Math.floor((daysms)/(60*60*1000));
+    let hoursms=ms % (60*60*1000);
+    let minutes = Math.floor((hoursms)/(60*1000));
+    let minutesms=ms % (60*1000);
+    let sec = Math.floor((minutesms)/(1000));
+    return days+separator+hours+separator+minutes+separator+sec;
+}
 /* ================================================================== */
 
 /*function downloadFileByUrl(url, fileName){
@@ -98,5 +113,15 @@ function getUrlParameterValueByName(parameterName, url){
      link.href = url;
      link.click();
  } */
+
+
+/* ================================================================== */
+// ======  PROTOTYPING
+/* ================================================================== */
+
+// This prototype moves an item in an array to a new position/index in the array
+Array.prototype.move = function (from, to) {
+  this.splice(to, 0, this.splice(from, 1)[0]);
+};
 
 /* ================================================================== */
