@@ -107,6 +107,77 @@ function getDaysMinutesHoursSecondsFromMiliseconds(ms, separator){
 }
 /* ================================================================== */
 
+function convertTimeToSeconds(h,m,s){
+    return((h*60*60+m*60+s));
+}
+
+/* ================================================================== */
+
+function getUTCEpoch(inputDate){
+	let epoch;
+	if(!inputDate){
+		epoch = Math.floor((new Date).getTime()/1000);
+	}
+	else{
+		window.console.warn('Is the input value UTC?')
+		epoch = Math.floor((new Date(inputDate)).getTime()/1000);
+	}
+	return epoch;
+}
+
+/* ================================================================== */
+
+function executeFunctionAtEpoch(epochTriggerTime, functionToExecuteOnTrigger){
+	let isDebug = true;
+	let futureEpoch = Math.floor(epochTriggerTime);
+	if(isDebug) window.console.log('futureEpoch: ', futureEpoch);
+
+	let currentEpoch = Math.floor(getUTCEpoch());
+	if(isDebug) window.console.log('currentEpoch: ', currentEpoch);
+
+	var timeOutInMs = (futureEpoch - currentEpoch) * 1000;
+	if(timeOutInMs < 0){
+		window.console.error('Event registered in past, milliseconds passed since:', timeOutInMs);
+		return;
+	}
+
+	if(isDebug){
+		let consoleString = 'function ';
+		consoleString += functionToExecuteOnTrigger;
+		consoleString += ' will be executed in: '
+		consoleString += timeOutInMs + 'ms';
+		window.console.log(consoleString);
+	} 
+	setTimeout(functionToExecuteOnTrigger, timeOutInMs);
+}
+
+/* ================================================================== */
+
+function getUserId(){
+	let claims = getClaimsFromJWT();
+	if(!claims.unique_name) window.console.error('No userId found in claims');
+
+	return claims.unique_name;
+}
+
+function getRefreshToken(){
+	let claims = getClaimsFromJWT();
+	if(!claims.rft) window.console.error('No refreshToken found in claims');
+
+	return claims.rft;
+}
+
+function getClaimsFromJWT(){
+	// Collect the JWT
+	let jwt = getJWT();
+
+	// Claims are stored in the middle portion of the JWT
+	let claims = JSON.parse(atob(jwt.split('.')[1]));
+
+	return claims;
+}
+
+/* ================================================================== */
 /*function downloadFileByUrl(url, fileName){
      let link = document.createElement("a");
     link.download = name;
