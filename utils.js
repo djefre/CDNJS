@@ -151,33 +151,6 @@ function executeFunctionAtEpoch(epochTriggerTime, functionToExecuteOnTrigger){
 	setTimeout(functionToExecuteOnTrigger, timeOutInMs);
 }
 
-/* ================================================================== */
-
-function getUserId(){
-	let claims = getClaimsFromJWT();
-	if(!claims.unique_name) window.console.error('No userId found in claims');
-
-	return claims.unique_name;
-}
-
-function getRefreshToken(){
-	let claims = getClaimsFromJWT();
-	if(!claims.rft) window.console.error('No refreshToken found in claims');
-
-	return claims.rft;
-}
-
-function getClaimsFromJWT(){
-	// Collect the JWT
-	let jwt = getJWT();
-
-	// Claims are stored in the middle portion of the JWT
-	let claims = JSON.parse(atob(jwt.split('.')[1]));
-
-	return claims;
-}
-
-/* ================================================================== */
 /*function downloadFileByUrl(url, fileName){
      let link = document.createElement("a");
     link.download = name;
