@@ -1,9 +1,9 @@
 // Loads exernal javascript files by addigng a <script> tag to the head
-function loadExternalJsFileByUrl(url){
-	let scriptElement = document.createElement('script');
-	scriptElement.src = url;
-	scriptElement.type = 'application/javascript';
-	document.head.appendChild(scriptElement);
+// input example: 'https://cdn.jsdelivr.net/gh/djefre/cdnjs/utils.js'
+function loadExternalJsFileByUrl(src){
+	var s = document.createElement('script');
+  	s.setAttribute('src', src);
+  	document.body.appendChild(s);
 }
 
 /* ================================================================== */
