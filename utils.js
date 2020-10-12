@@ -63,6 +63,23 @@ function showScrollTopButton(marginTopScroll){
 
 /* ================================================================== */
 
+function rainbowifyElementBackground(cssSelector, interval) {
+	if(!interval){
+		interval = 1500
+	}
+	
+	let i = 0
+   	let rainbowColors = ['purple', 'blue', 'lightblue', 'green', 'yellow', 'orange', 'red']
+   	let element = document.querySelector(cssSelector))
+
+   	setInterval(()=> {
+		i = i > rainbowColors.length - 1 ? 0 : i + 1
+		element.style.transition = 'background-color 1s ease'
+		element.style.backgroundColor = rainbowColors[i]
+   	}, interval)
+}
+/* ================================================================== */
+
 function styledConsoleMessageExample(){
 	let font="font-family: roboto;";
 	let italic="font-style: italic;";
