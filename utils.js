@@ -70,7 +70,7 @@ function rainbowifyElementBackground(cssSelector, interval) {
 	
 	let i = 0
    	let rainbowColors = ['purple', 'blue', 'lightblue', 'green', 'yellow', 'orange', 'red']
-   	let element = document.querySelector(cssSelector))
+   	let element = document.querySelector(cssSelector)
 
    	setInterval(()=> {
 		i = i > rainbowColors.length - 1 ? 0 : i + 1
