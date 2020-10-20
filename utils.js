@@ -96,7 +96,13 @@ function getDirectGiphyLink() {
 	    
  	try{
 		navigator.clipboard.writeText(mainLink)
-		console.log(mainLink + ' copied to ClipBoard')
+			.then(()=> {
+				console.log(mainLink + ' copied to ClipBoard')
+			})
+			.catch((e) => {
+				console.error(e)
+			})
+		
     	}
     	catch(e) {
 		console.log('could not copy to ClipBoard :(')
