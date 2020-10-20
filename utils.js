@@ -81,7 +81,7 @@ function rainbowifyElementBackground(cssSelector, interval) {
 
 /* ================================================================== */
 
-getDirectGiphyLink() {
+function getDirectGiphyLink() {
     if(!window.location.href.includes(`giphy.com`)) return
 
     let gifId = undefined
