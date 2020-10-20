@@ -78,6 +78,33 @@ function rainbowifyElementBackground(cssSelector, interval) {
 		element.style.backgroundColor = rainbowColors[i]
    	}, interval)
 }
+
+/* ================================================================== */
+
+getDirectGiphyLink() {
+    if(!window.location.href.includes(`giphy.com`)) return
+
+    let gifId = undefined
+    let mainLink = undefined
+
+    try {
+        gifId = document.querySelector('img[src^="https://media2.giphy.com"]').getAttribute('src').split('/')[4]
+        if(!gifId) throw `Could not retrieve Id of gif :(`
+        mainLink = `https://i.giphy.com/${gifId}.gif`
+        
+        console.log(mainLink)
+	    
+ 	try{
+		navigator.clipboard.writeText(mainLink)
+		console.log(mainLink + ' copied to ClipBoard')
+    	}
+    	catch(e) {
+		console.log('could not copy to ClipBoard :(')
+    	}
+    }
+    catch (e) { }
+}
+
 /* ================================================================== */
 
 function styledConsoleMessageExample(){
