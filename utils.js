@@ -88,7 +88,7 @@ function getDirectGiphyLink() {
     let mainLink = undefined
 
     try {
-        gifId = document.querySelector('img[src^="https://media2.giphy.com"]').getAttribute('src').split('/')[4]
+        gifId = document.querySelector('img[src^="https://media"]').getAttribute('src').split('/')[4]
         if(!gifId) throw `Could not retrieve Id of gif :(`
         mainLink = `https://i.giphy.com/${gifId}.gif`
         
