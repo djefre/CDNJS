@@ -5,7 +5,6 @@ function httpClient (method, url, data) {
 	    xhr.open(method, url);
 	    //xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
 	    xhr.setRequestHeader("Content-Type", "application/json");
-	    xhr.setRequestHeader("api-version", "1");
 	    xhr.onload = function() {
 		if (this.status >= 200 && this.status < 300) {
 			resolve(xhr.response);
