@@ -3,7 +3,7 @@ function httpClient (method, url, data) {
 	return new Promise(function (resolve, reject) {
 	    let xhr = new XMLHttpRequest();
 	    xhr.open(method, url);
-	    xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+	    //xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
 	    xhr.setRequestHeader("Content-Type", "application/json");
 	    xhr.setRequestHeader("api-version", "1");
 	    xhr.onload = function() {
