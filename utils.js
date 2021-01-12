@@ -201,6 +201,23 @@ function executeFunctionAtEpoch(epochTriggerTime, functionToExecuteOnTrigger){
 	setTimeout(functionToExecuteOnTrigger, timeOutInMs);
 }
 
+function skipYoutubeAds(intervalInput){
+	let interval = (typeof intervalInput !== 'undefined') ? intervalInput : 250
+	setInterval(() => {
+	    // Handle skip button
+	    let skipButton = document.querySelector('.ytp-ad-skip-button-container > button')
+	    if(skipButton){
+		skipButton.click()
+	    }
+
+	    // Handle overlay ad
+	    let overlayAd = document.querySelector('.ytp-ad-image-overlay')
+	    if(overlayAd){
+		overlayAd.remove()
+	    }
+	}, interval)
+}
+
 /*function downloadFileByUrl(url, fileName){
      let link = document.createElement("a");
     link.download = name;
